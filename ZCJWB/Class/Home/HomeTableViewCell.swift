@@ -9,12 +9,6 @@
 import UIKit
 import SDWebImage
 class HomeTableViewCell: UITableViewCell {
-    //图片容器的宽度约束
-    var picCollectionViewWidthConstraint: Constraint?
-    //图片容器的高度约束
-    var picCollectionViewHeightConstraint: Constraint?
-
-    let WBIdentifier = "WBIdentifier"
     var viewModel: StatusViewModel?{
         didSet{
             //设置头像
@@ -36,23 +30,17 @@ class HomeTableViewCell: UITableViewCell {
             sourceLbl.text = viewModel!.source_Text
             //设置正文
             textLbl.text = viewModel?.status.text
-            //TODO 显示图片
-            picCollectionView.reloadData()
-            let (itemSize, clSize) = calculateSize()
-            //更新cell尺寸
-            if itemSize != CGSizeZero{
-                collectionlayout.itemSize = itemSize
-            }
-            //更新collectionView的尺寸
-            picCollectionViewWidthConstraint?.updateOffset(clSize.width)
-            picCollectionViewHeightConstraint?.updateOffset(clSize.height)
+            //转发微博
             if let retween_status = viewModel?.status.retweeted_status {
                 let screen_name = retween_status.user?.screen_name ?? ""
                 retweetedLbl.text = "@" + screen_name + ":" + (retween_status.text ?? "")
                 retweetedView.backgroundColor = UIColor(red: 239.0/255.0, green: 239.0/255.0, blue: 239.0/255.0, alpha: 1)
             }else{
+                retweetedLbl.text = ""
                 retweetedView.backgroundColor = UIColor.whiteColor()
             }
+            picCollectionView.viewModel = viewModel
+            retweetedView.layoutIfNeeded()
             self.layoutIfNeeded()
         }
     }
@@ -61,13 +49,6 @@ class HomeTableViewCell: UITableViewCell {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         setupUI()
         setupFrameCons()
-        picCollectionView.registerClass(WBPicCollectionViewCell.self, forCellWithReuseIdentifier: WBIdentifier)
-        picCollectionView.dataSource = self
-        picCollectionView.delegate = self
-    }
-
-    override func awakeFromNib() {
-
     }
 
     required init?(coder aDecoder: NSCoder) {
@@ -80,12 +61,9 @@ class HomeTableViewCell: UITableViewCell {
         self.viewModel = viewModel
         // 返回底部视图最大的Y
         return CGRectGetMaxY(btnContainerView.frame)
-
-//        return _height
     }
-
     //MARK: - 内部方法
-    // 这只UI
+    /// 设置UI
     private func setupUI(){
         //头像
         contentView.addSubview(iconImageView)
@@ -96,21 +74,18 @@ class HomeTableViewCell: UITableViewCell {
         contentView.addSubview(sourceLbl)
         //微博正文
         contentView.addSubview(textLbl)
-
         //转发微博
         contentView.addSubview(retweetedView)
         retweetedView.addSubview(retweetedLbl)
         //微博图片
         retweetedView.addSubview(picCollectionView)
-
         //底部按钮
         contentView.addSubview(btnContainerView)
         btnContainerView.addSubview(forwardBtn)
         btnContainerView.addSubview(commentBtn)
         btnContainerView.addSubview(likeBtn)
     }
-
-    //设置组件约束
+    //MARK: - 设置组件约束
     private func setupFrameCons(){
         //头像
         iconImageView.snp_makeConstraints { (make) -> Void in
@@ -147,7 +122,6 @@ class HomeTableViewCell: UITableViewCell {
         }
         sourceLbl.textColor = UIColor.lightGrayColor()
         sourceLbl.font = UIFont.systemFontOfSize(15)
-
         //微博正文
         textLbl.snp_makeConstraints { (make) -> Void in
             make.left.equalTo(iconImageView.snp_left)
@@ -170,10 +144,7 @@ class HomeTableViewCell: UITableViewCell {
             make.top.equalTo(retweetedLbl.snp_bottom).offset(5)
             make.left.equalTo(retweetedView.snp_left).offset(10)
             make.bottom.equalTo(retweetedView.snp_bottom).offset(-2)
-            picCollectionViewWidthConstraint = make.width.equalTo(290).constraint
-            picCollectionViewHeightConstraint =  make.height.equalTo(290).constraint
         }
-
         //底部按钮容器
         btnContainerView.snp_makeConstraints { (make) -> Void in
             make.top.equalTo(retweetedView.snp_bottom)
@@ -181,7 +152,6 @@ class HomeTableViewCell: UITableViewCell {
             make.height.equalTo(44)
         }
         btnContainerView.backgroundColor = UIColor.grayColor()
-
         forwardBtn.snp_makeConstraints { (make) -> Void in
             make.left.top.bottom.equalTo(btnContainerView)
             make.width.equalTo(commentBtn.snp_width)
@@ -195,46 +165,6 @@ class HomeTableViewCell: UITableViewCell {
         likeBtn.snp_makeConstraints { (make) -> Void in
             make.right.bottom.top.equalTo(btnContainerView)
         }
-    }
-
-    //计算cell高度和collectionView的尺寸
-    private func calculateSize() -> (CGSize, CGSize){
-        /*
-        没有配图: cell = CGSizeZero,  collectionView = CGSizeZero
-        一张图片: cell = image.size,  collectionView = image.size
-        四张配图: cell = (90,90), collectionView = 2*x + 10, 2*y + 10
-        其他张: cell = (90,90)), collectionView = 2*x + 10, 2*y + 10
-        */
-        let count = viewModel?.thumbpics?.count ?? 0
-        if count == 0 {
-            return (CGSizeZero, CGSizeZero)
-        }
-        //一张图片
-        if count == 1 {
-            //从缓存中获取已经下载好的图片,其中key等于图片的url
-            let key = viewModel!.thumbpics!.first!.absoluteString
-            let image = SDWebImageManager.sharedManager().imageCache.imageFromDiskCacheForKey(key)
-            return (image.size, image.size)
-        }
-        let imageWidth = 90
-        let imageHeight = 90
-        let imageMargin = 10
-        //四张图片
-        if count == 4 {
-            let col = 2   //列
-            let row = col //行
-            //宽度 = 图片的宽度 * 列数 + (列数 - 1 ) * 间隙
-            //高度 = 图片的高度 * 行书 + (行数 - 1 ) * 间隙
-            let _width = imageWidth * col + (col - 1 ) * imageMargin
-            let _height = imageHeight * row + (row - 1) * imageMargin
-            return (CGSize(width: imageWidth, height: imageHeight), CGSize(width: _width, height: _height))
-        }
-        //其他张图片
-        let col = 3
-        let row = (count - 1)/3 + 1
-        let _width = imageWidth * col + (col - 1 ) * imageMargin
-        let _height = imageHeight * row + (row - 1) * imageMargin
-        return (CGSize(width: imageWidth, height: imageHeight), CGSize(width: _width, height: _height))
     }
     /// 图标
     private lazy var iconImageView = UIImageView()
@@ -266,10 +196,8 @@ class HomeTableViewCell: UITableViewCell {
         return lbl
     }()
     //微博图片
-    //collection布局
-    var collectionlayout = UICollectionViewFlowLayout()
-    private lazy var picCollectionView: UICollectionView = {
-        let collectionView = UICollectionView(frame: CGRectZero, collectionViewLayout: self.collectionlayout)
+    private lazy var picCollectionView: WBPicCollectionView = {
+        let collectionView = WBPicCollectionView()
         collectionView.backgroundColor = UIColor.clearColor()
         return collectionView
     }()
@@ -308,7 +236,6 @@ class HomeTableViewCell: UITableViewCell {
         _btn.setTitleColor(UIColor.grayColor(), forState: .Normal)
         return _btn
     }()
-
     //转发按钮点击事件
     @objc private func forwardBtnClick(){
 
@@ -322,22 +249,3 @@ class HomeTableViewCell: UITableViewCell {
 
     }
 }
-
-extension HomeTableViewCell: UICollectionViewDataSource{
-
-    func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
-        return 1
-    }
-    func collectionView(collectionView:UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return viewModel?.thumbpics?.count ?? 0
-    }
-    func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCellWithReuseIdentifier(WBIdentifier, forIndexPath: indexPath) as! WBPicCollectionViewCell
-        cell.url = viewModel!.thumbpics![indexPath.item]
-        return cell
-    }
-}
-extension HomeTableViewCell: UICollectionViewDelegate{
-    
-}
-

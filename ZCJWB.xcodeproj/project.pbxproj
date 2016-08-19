@@ -14,11 +14,19 @@
 		F90BDA731D5AB30500A3989B /* NetworkTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = F90BDA721D5AB30500A3989B /* NetworkTools.swift */; };
 		F90BDA751D5ABAE300A3989B /* Pods_ZCJWB.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F90BDA741D5ABAE300A3989B /* Pods_ZCJWB.framework */; };
 		F91D46241D5DE3B6004AA608 /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = F91D46231D5DE3B6004AA608 /* R.generated.swift */; };
-		F91D46261D5DE4AE004AA608 /* StatusViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F91D46251D5DE4AE004AA608 /* StatusViewModel.swift */; };
 		F92B0C2B1D5B2BCC00C0962B /* OAuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F92B0C291D5B2BCC00C0962B /* OAuthViewController.swift */; };
 		F92B0C2C1D5B2BCC00C0962B /* UserAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = F92B0C2A1D5B2BCC00C0962B /* UserAccount.swift */; };
 		F92B0C2F1D5B314D00C0962B /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F92B0C2E1D5B314D00C0962B /* WelcomeViewController.swift */; };
 		F93F7B471D62FE3A00122E5C /* ZCJRefreshControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = F93F7B461D62FE3A00122E5C /* ZCJRefreshControl.swift */; };
+		F93F8B1E1D66B5220052A096 /* StatusListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F93F8B141D66B5220052A096 /* StatusListModel.swift */; };
+		F93F8B1F1D66B5220052A096 /* StatusViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F93F8B151D66B5220052A096 /* StatusViewModel.swift */; };
+		F93F8B201D66B5220052A096 /* WBStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = F93F8B161D66B5220052A096 /* WBStatus.swift */; };
+		F93F8B211D66B5220052A096 /* WBUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = F93F8B171D66B5220052A096 /* WBUser.swift */; };
+		F93F8B221D66B5220052A096 /* QRCode.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F93F8B191D66B5220052A096 /* QRCode.storyboard */; };
+		F93F8B231D66B5220052A096 /* QRCodeCreateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F93F8B1A1D66B5220052A096 /* QRCodeCreateViewController.swift */; };
+		F93F8B241D66B5220052A096 /* QRCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F93F8B1B1D66B5220052A096 /* QRCodeViewController.swift */; };
+		F93F8B251D66B5220052A096 /* PopoverView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F93F8B1D1D66B5220052A096 /* PopoverView.swift */; };
+		F93F8B271D66B5AA0052A096 /* WBPicCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F93F8B261D66B5AA0052A096 /* WBPicCollectionView.swift */; };
 		F95CB2CA1D581FBD008BBBB0 /* UIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F95CB2C91D581FBD008BBBB0 /* UIImage+Extension.swift */; };
 		F95FBD151D57775C00751407 /* Constraint.swift in Sources */ = {isa = PBXBuildFile; fileRef = F95FBD081D57775C00751407 /* Constraint.swift */; };
 		F95FBD161D57775C00751407 /* ConstraintAttributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = F95FBD091D57775C00751407 /* ConstraintAttributes.swift */; };
@@ -34,20 +42,12 @@
 		F95FBD201D57775C00751407 /* ViewController+SnapKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = F95FBD141D57775C00751407 /* ViewController+SnapKit.swift */; };
 		F96DD9A21D5DFA01004609B4 /* NSDate+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F96DD9A11D5DFA01004609B4 /* NSDate+Extension.swift */; };
 		F97AC50F1D5DF694004F8AD3 /* HomeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F97AC50E1D5DF694004F8AD3 /* HomeTableViewCell.swift */; };
-		F97C67D51D66875700067119 /* WBPicCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F97C67D41D66875700067119 /* WBPicCollectionViewCell.swift */; };
-		F97C67D71D66884F00067119 /* WBCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F97C67D61D66884F00067119 /* WBCollectionViewController.swift */; };
 		F9A234A51D533E4000637055 /* UIButton+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9A234A41D533E4000637055 /* UIButton+Extension.swift */; };
 		F9A234A71D53482B00637055 /* BaseTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9A234A61D53482B00637055 /* BaseTableViewController.swift */; };
 		F9A234A91D53502600637055 /* VisitorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9A234A81D53502600637055 /* VisitorView.swift */; };
-		F9B4F4761D5D56E50031AD4C /* WBUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9B4F4751D5D56E50031AD4C /* WBUser.swift */; };
-		F9C1471C1D54812400B3EE75 /* PopoverView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9C1471B1D54812400B3EE75 /* PopoverView.swift */; };
 		F9D1F4F01D5434FF005100F4 /* UIBarButtonItem+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9D1F4EF1D5434FF005100F4 /* UIBarButtonItem+Extension.swift */; };
 		F9D1F4F21D543CF4005100F4 /* TitleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9D1F4F11D543CF4005100F4 /* TitleButton.swift */; };
-		F9E4D9521D55E8B7005819BB /* QRCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9E4D9501D55E8B7005819BB /* QRCodeViewController.swift */; };
-		F9E721121D55F11E0003FE1A /* QRCode.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F9E721111D55F11E0003FE1A /* QRCode.storyboard */; };
-		F9F4592A1D576E8A0086F470 /* QRCodeCreateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9F459291D576E8A0086F470 /* QRCodeCreateViewController.swift */; };
 		F9F56FFD1D5C544D00CCBB51 /* NewFeatureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9F56FFC1D5C544D00CCBB51 /* NewFeatureViewController.swift */; };
-		F9F97BDE1D5CB6F600AA291B /* WBStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9F97BDD1D5CB6F600AA291B /* WBStatus.swift */; };
 		F9FEDB291D51F0C4000D1A37 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9FEDB281D51F0C4000D1A37 /* AppDelegate.swift */; };
 		F9FEDB301D51F0C4000D1A37 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F9FEDB2F1D51F0C4000D1A37 /* Assets.xcassets */; };
 		F9FEDB3E1D51F0C4000D1A37 /* ZCJWBTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9FEDB3D1D51F0C4000D1A37 /* ZCJWBTests.swift */; };
@@ -89,11 +89,19 @@
 		F90BDA721D5AB30500A3989B /* NetworkTools.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkTools.swift; sourceTree = "<group>"; };
 		F90BDA741D5ABAE300A3989B /* Pods_ZCJWB.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Pods_ZCJWB.framework; path = "Pods/../build/Debug-iphoneos/Pods_ZCJWB.framework"; sourceTree = "<group>"; };
 		F91D46231D5DE3B6004AA608 /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = SOURCE_ROOT; };
-		F91D46251D5DE4AE004AA608 /* StatusViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusViewModel.swift; sourceTree = "<group>"; };
 		F92B0C291D5B2BCC00C0962B /* OAuthViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OAuthViewController.swift; sourceTree = "<group>"; };
 		F92B0C2A1D5B2BCC00C0962B /* UserAccount.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserAccount.swift; sourceTree = "<group>"; };
 		F92B0C2E1D5B314D00C0962B /* WelcomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
 		F93F7B461D62FE3A00122E5C /* ZCJRefreshControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZCJRefreshControl.swift; sourceTree = "<group>"; };
+		F93F8B141D66B5220052A096 /* StatusListModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusListModel.swift; sourceTree = "<group>"; };
+		F93F8B151D66B5220052A096 /* StatusViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusViewModel.swift; sourceTree = "<group>"; };
+		F93F8B161D66B5220052A096 /* WBStatus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WBStatus.swift; sourceTree = "<group>"; };
+		F93F8B171D66B5220052A096 /* WBUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WBUser.swift; sourceTree = "<group>"; };
+		F93F8B191D66B5220052A096 /* QRCode.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = QRCode.storyboard; sourceTree = "<group>"; };
+		F93F8B1A1D66B5220052A096 /* QRCodeCreateViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QRCodeCreateViewController.swift; sourceTree = "<group>"; };
+		F93F8B1B1D66B5220052A096 /* QRCodeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QRCodeViewController.swift; sourceTree = "<group>"; };
+		F93F8B1D1D66B5220052A096 /* PopoverView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopoverView.swift; sourceTree = "<group>"; };
+		F93F8B261D66B5AA0052A096 /* WBPicCollectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WBPicCollectionView.swift; sourceTree = "<group>"; };
 		F95CB2C91D581FBD008BBBB0 /* UIImage+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+Extension.swift"; sourceTree = "<group>"; };
 		F95FBD081D57775C00751407 /* Constraint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constraint.swift; sourceTree = "<group>"; };
 		F95FBD091D57775C00751407 /* ConstraintAttributes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConstraintAttributes.swift; sourceTree = "<group>"; };
@@ -110,21 +118,13 @@
 		F95FBD141D57775C00751407 /* ViewController+SnapKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ViewController+SnapKit.swift"; sourceTree = "<group>"; };
 		F96DD9A11D5DFA01004609B4 /* NSDate+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSDate+Extension.swift"; sourceTree = "<group>"; };
 		F97AC50E1D5DF694004F8AD3 /* HomeTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeTableViewCell.swift; sourceTree = "<group>"; };
-		F97C67D41D66875700067119 /* WBPicCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WBPicCollectionViewCell.swift; sourceTree = "<group>"; };
-		F97C67D61D66884F00067119 /* WBCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WBCollectionViewController.swift; sourceTree = "<group>"; };
 		F9A234A41D533E4000637055 /* UIButton+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIButton+Extension.swift"; sourceTree = "<group>"; };
 		F9A234A61D53482B00637055 /* BaseTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseTableViewController.swift; sourceTree = "<group>"; };
 		F9A234A81D53502600637055 /* VisitorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VisitorView.swift; sourceTree = "<group>"; };
-		F9B4F4751D5D56E50031AD4C /* WBUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WBUser.swift; sourceTree = "<group>"; };
 		F9B902561D571B9700A031EF /* ZCJWB-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ZCJWB-Bridging-Header.h"; sourceTree = "<group>"; };
-		F9C1471B1D54812400B3EE75 /* PopoverView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopoverView.swift; sourceTree = "<group>"; };
 		F9D1F4EF1D5434FF005100F4 /* UIBarButtonItem+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIBarButtonItem+Extension.swift"; sourceTree = "<group>"; };
 		F9D1F4F11D543CF4005100F4 /* TitleButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TitleButton.swift; sourceTree = "<group>"; };
-		F9E4D9501D55E8B7005819BB /* QRCodeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QRCodeViewController.swift; sourceTree = "<group>"; };
-		F9E721111D55F11E0003FE1A /* QRCode.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = QRCode.storyboard; sourceTree = "<group>"; };
-		F9F459291D576E8A0086F470 /* QRCodeCreateViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QRCodeCreateViewController.swift; sourceTree = "<group>"; };
 		F9F56FFC1D5C544D00CCBB51 /* NewFeatureViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewFeatureViewController.swift; sourceTree = "<group>"; };
-		F9F97BDD1D5CB6F600AA291B /* WBStatus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WBStatus.swift; sourceTree = "<group>"; };
 		F9FEDB251D51F0C4000D1A37 /* ZCJWB.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ZCJWB.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F9FEDB281D51F0C4000D1A37 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F9FEDB2F1D51F0C4000D1A37 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -225,6 +225,35 @@
 			path = Refresh;
 			sourceTree = "<group>";
 		};
+		F93F8B131D66B5220052A096 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				F93F8B141D66B5220052A096 /* StatusListModel.swift */,
+				F93F8B151D66B5220052A096 /* StatusViewModel.swift */,
+				F93F8B161D66B5220052A096 /* WBStatus.swift */,
+				F93F8B171D66B5220052A096 /* WBUser.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		F93F8B181D66B5220052A096 /* ORCode */ = {
+			isa = PBXGroup;
+			children = (
+				F93F8B191D66B5220052A096 /* QRCode.storyboard */,
+				F93F8B1A1D66B5220052A096 /* QRCodeCreateViewController.swift */,
+				F93F8B1B1D66B5220052A096 /* QRCodeViewController.swift */,
+			);
+			path = ORCode;
+			sourceTree = "<group>";
+		};
+		F93F8B1C1D66B5220052A096 /* Popover */ = {
+			isa = PBXGroup;
+			children = (
+				F93F8B1D1D66B5220052A096 /* PopoverView.swift */,
+			);
+			path = Popover;
+			sourceTree = "<group>";
+		};
 		F95FBD071D57775C00751407 /* SnapKit */ = {
 			isa = PBXGroup;
 			children = (
@@ -243,34 +272,6 @@
 				F95FBD141D57775C00751407 /* ViewController+SnapKit.swift */,
 			);
 			path = SnapKit;
-			sourceTree = "<group>";
-		};
-		F9C147161D5472C000B3EE75 /* Popover */ = {
-			isa = PBXGroup;
-			children = (
-				F9C1471B1D54812400B3EE75 /* PopoverView.swift */,
-			);
-			name = Popover;
-			sourceTree = "<group>";
-		};
-		F9E4D94F1D55E35F005819BB /* QRCode */ = {
-			isa = PBXGroup;
-			children = (
-				F9E4D9501D55E8B7005819BB /* QRCodeViewController.swift */,
-				F9E721111D55F11E0003FE1A /* QRCode.storyboard */,
-				F9F459291D576E8A0086F470 /* QRCodeCreateViewController.swift */,
-			);
-			name = QRCode;
-			sourceTree = "<group>";
-		};
-		F9F97BDC1D5CB6CB00AA291B /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				F9F97BDD1D5CB6F600AA291B /* WBStatus.swift */,
-				F9B4F4751D5D56E50031AD4C /* WBUser.swift */,
-				F91D46251D5DE4AE004AA608 /* StatusViewModel.swift */,
-			);
-			name = Model;
 			sourceTree = "<group>";
 		};
 		F9FEDB1C1D51F0C4000D1A37 = {
@@ -352,14 +353,13 @@
 		F9FEDB591D51F3D4000D1A37 /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				F93F8B131D66B5220052A096 /* Model */,
+				F93F8B181D66B5220052A096 /* ORCode */,
+				F93F8B1C1D66B5220052A096 /* Popover */,
 				F93F7B431D62FCD400122E5C /* Refresh */,
-				F9F97BDC1D5CB6CB00AA291B /* Model */,
-				F9E4D94F1D55E35F005819BB /* QRCode */,
-				F9C147161D5472C000B3EE75 /* Popover */,
 				F9FEDB671D51F766000D1A37 /* HomeTableViewController.swift */,
 				F97AC50E1D5DF694004F8AD3 /* HomeTableViewCell.swift */,
-				F97C67D41D66875700067119 /* WBPicCollectionViewCell.swift */,
-				F97C67D61D66884F00067119 /* WBCollectionViewController.swift */,
+				F93F8B261D66B5AA0052A096 /* WBPicCollectionView.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -530,7 +530,7 @@
 			files = (
 				F906489F1D52CAF30077DDD1 /* MainVCSettings.json in Resources */,
 				F9FEDB301D51F0C4000D1A37 /* Assets.xcassets in Resources */,
-				F9E721121D55F11E0003FE1A /* QRCode.storyboard in Resources */,
+				F93F8B221D66B5220052A096 /* QRCode.storyboard in Resources */,
 				F9FF5B7C1D53876A005DCDCB /* VisitorView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -617,50 +617,50 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F97C67D71D66884F00067119 /* WBCollectionViewController.swift in Sources */,
 				F95FBD1D1D57775C00751407 /* LayoutConstraint.swift in Sources */,
 				F93F7B471D62FE3A00122E5C /* ZCJRefreshControl.swift in Sources */,
+				F93F8B241D66B5220052A096 /* QRCodeViewController.swift in Sources */,
 				F95FBD151D57775C00751407 /* Constraint.swift in Sources */,
 				F97AC50F1D5DF694004F8AD3 /* HomeTableViewCell.swift in Sources */,
-				F9F4592A1D576E8A0086F470 /* QRCodeCreateViewController.swift in Sources */,
 				F9D1F4F21D543CF4005100F4 /* TitleButton.swift in Sources */,
 				F9FEDB6E1D51F8CB000D1A37 /* Common.swift in Sources */,
 				F96DD9A21D5DFA01004609B4 /* NSDate+Extension.swift in Sources */,
 				F95FBD1F1D57775C00751407 /* View+SnapKit.swift in Sources */,
 				F92B0C2F1D5B314D00C0962B /* WelcomeViewController.swift in Sources */,
-				F9F97BDE1D5CB6F600AA291B /* WBStatus.swift in Sources */,
-				F9E4D9521D55E8B7005819BB /* QRCodeViewController.swift in Sources */,
 				F9FEDB6C1D51F785000D1A37 /* ProfileTableViewController.swift in Sources */,
 				F92B0C2C1D5B2BCC00C0962B /* UserAccount.swift in Sources */,
 				F9F56FFD1D5C544D00CCBB51 /* NewFeatureViewController.swift in Sources */,
 				F90BB5A41D5AFF1900E02FA5 /* String+Extension.swift in Sources */,
 				F90BDA731D5AB30500A3989B /* NetworkTools.swift in Sources */,
 				F9A234A51D533E4000637055 /* UIButton+Extension.swift in Sources */,
+				F93F8B271D66B5AA0052A096 /* WBPicCollectionView.swift in Sources */,
+				F93F8B211D66B5220052A096 /* WBUser.swift in Sources */,
 				F9FEDB291D51F0C4000D1A37 /* AppDelegate.swift in Sources */,
-				F91D46261D5DE4AE004AA608 /* StatusViewModel.swift in Sources */,
+				F93F8B1F1D66B5220052A096 /* StatusViewModel.swift in Sources */,
+				F93F8B231D66B5220052A096 /* QRCodeCreateViewController.swift in Sources */,
 				F9FEDB631D51F58F000D1A37 /* NavigationController.swift in Sources */,
 				F9A234A71D53482B00637055 /* BaseTableViewController.swift in Sources */,
 				F9A234A91D53502600637055 /* VisitorView.swift in Sources */,
 				F90648A01D52CAF30077DDD1 /* NullViewController.swift in Sources */,
 				F95FBD201D57775C00751407 /* ViewController+SnapKit.swift in Sources */,
-				F9B4F4761D5D56E50031AD4C /* WBUser.swift in Sources */,
 				F95FBD1C1D57775C00751407 /* EdgeInsets.swift in Sources */,
 				F9FEDB661D51F708000D1A37 /* DiscoverTableViewController.swift in Sources */,
-				F9C1471C1D54812400B3EE75 /* PopoverView.swift in Sources */,
 				F95FBD181D57775C00751407 /* ConstraintItem.swift in Sources */,
 				F95FBD191D57775C00751407 /* ConstraintMaker.swift in Sources */,
 				F9FEDB611D51F568000D1A37 /* MainViewController.swift in Sources */,
+				F93F8B1E1D66B5220052A096 /* StatusListModel.swift in Sources */,
 				F95FBD1E1D57775C00751407 /* SnapKit.swift in Sources */,
 				F9FEDB6A1D51F775000D1A37 /* MessageTableViewController.swift in Sources */,
+				F93F8B251D66B5220052A096 /* PopoverView.swift in Sources */,
 				F95FBD1A1D57775C00751407 /* ConstraintRelation.swift in Sources */,
 				F95FBD161D57775C00751407 /* ConstraintAttributes.swift in Sources */,
 				F91D46241D5DE3B6004AA608 /* R.generated.swift in Sources */,
 				F9FEDB681D51F766000D1A37 /* HomeTableViewController.swift in Sources */,
 				F9D1F4F01D5434FF005100F4 /* UIBarButtonItem+Extension.swift in Sources */,
 				F95CB2CA1D581FBD008BBBB0 /* UIImage+Extension.swift in Sources */,
-				F97C67D51D66875700067119 /* WBPicCollectionViewCell.swift in Sources */,
 				F95FBD1B1D57775C00751407 /* Debugging.swift in Sources */,
 				F92B0C2B1D5B2BCC00C0962B /* OAuthViewController.swift in Sources */,
+				F93F8B201D66B5220052A096 /* WBStatus.swift in Sources */,
 				F95FBD171D57775C00751407 /* ConstraintDescription.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

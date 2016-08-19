@@ -119,7 +119,6 @@ class ZCJRefreshControl: UIRefreshControl {
         let lbl = UILabel()
         lbl.text = "下拉刷新"
         return lbl
-
     }()
 
 }
