@@ -25,8 +25,8 @@ class TitleButton: UIButton {
     }
 
     private func setupUI(){
-        setImage(UIImage(named: "navigationbar_arrow_down"), forState: .Normal)
-        setImage(UIImage(named: "navigationbar_arrow_up"), forState: .Selected)
+        setImage(R.image.navigationbar_arrow_down, forState: .Normal)
+        setImage(R.image.navigationbar_arrow_up, forState: .Selected)
         setTitleColor(UIColor.grayColor(), forState: .Normal)
         sizeToFit()
 

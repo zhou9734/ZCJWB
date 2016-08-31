@@ -19,6 +19,8 @@ class HomeTableViewController: BaseTableViewController {
     var statuesListModel = StatusListModel()
     let HomeIdentifier = "HomeIdentifier"
     var lastWBStatus = false
+    let presentAnimator = PresentAnimator()
+    let dismissAnimator = DismisssAnimator()
     override func viewDidLoad() {
         super.viewDidLoad()
         //判断用户是否登录
@@ -40,14 +42,52 @@ class HomeTableViewController: BaseTableViewController {
         refreshControl?.beginRefreshing()
         tableView.estimatedRowHeight = 320
         loadWBData()
-        //插入提醒标签
+        //注册通知
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("showBrowser:"), name: BrowserPicViewController, object: nil)
 
     }
+
+    //MARK: - 将提醒标签添加到导航栏中
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
         navigationController?.navigationBar.insertSubview(tipTextLbl, atIndex: 0)
+
     }
 
+    //MARK: - 打开图片浏览器
+    @objc private func showBrowser(notice: NSNotification){
+        //注意: 但凡通过网络或者通知获取到的数据,都需要进行安全校验
+        guard let pictures = notice.userInfo!["bmiddle_urls"] as? [NSURL] else{
+            SVProgressHUD.showErrorWithStatus("没有图片")
+            SVProgressHUD.setDefaultMaskType(.Black)
+            return
+        }
+        guard let indexPath = notice.userInfo!["indexPath"] as? NSIndexPath else{
+            SVProgressHUD.showErrorWithStatus("没有索引")
+            SVProgressHUD.setDefaultMaskType(.Black)
+            return
+        }
+        guard let originFrameStr = notice.userInfo!["originFrame"] as? String else{
+            return
+        }
+        let originFrame = CGRectFromString(originFrameStr)
+        guard let wbPicClv = notice.userInfo!["wbPicClv"] as? UICollectionView else{
+            return
+        }
+        SDWebImageManager.sharedManager().downloadImageWithURL(pictures[indexPath.item], options: SDWebImageOptions(rawValue: 0), progress: { (_, _) -> Void in
+
+            }) { (image, error, _, _, _) -> Void in
+                let browserVC = BrowserViewController(bmiddle_urls: pictures, indexPath: indexPath)
+                browserVC.transitioningDelegate = self
+                self.presentAnimator.originFrame = browserVC.view.convertRect(originFrame, toView: nil)
+                self.presentAnimator.image = image
+                self.presentAnimator.lastRect = self.calculateImageRect(image)
+                self.dismissAnimator.lastRect = self.calculateImageRect(image)
+                self.dismissAnimator.originFrame = browserVC.view.convertRect(originFrame, toView: nil)
+                self.dismissAnimator.wbPicClv = wbPicClv
+                self.presentViewController(browserVC, animated: true, completion: nil)
+        }
+    }
     //MARK: - 获取微博数据
     @objc private func loadWBData(){
         statuesListModel.loadWBData(lastWBStatus) { (models, error) -> () in
@@ -87,7 +127,6 @@ class HomeTableViewController: BaseTableViewController {
         navigationItem.leftBarButtonItem = UIBarButtonItem(imageName: "navigationbar_friendattention", target: self, action: Selector("friendAttentioinBtnClick:"))
         navigationItem.titleView = titleButton
     }
-
     private lazy var titleButton: TitleButton = {
         let btn = TitleButton()
         let title = UserAccount.loadAccount()?.screen_name
@@ -95,7 +134,6 @@ class HomeTableViewController: BaseTableViewController {
         btn.addTarget(self, action: Selector("titleButtonClick:"), forControlEvents: .TouchUpInside)
         return btn
     }()
-
     //提醒标签
     private lazy var tipTextLbl: UILabel = {
         let lbl = UILabel()
@@ -123,25 +161,42 @@ class HomeTableViewController: BaseTableViewController {
     @objc private func friendAttentioinBtnClick(btn: UIButton){
         NJLog("aa")
     }
-
+    //扫一扫
     @objc private func popBtnClick(btn: UIButton){
         presentViewController(R.storyboard.qRCode.initialViewController!, animated: true, completion: nil)
     }
-}
+    //移除通知
+    deinit{
+        NSNotificationCenter.defaultCenter().removeObserver(self)
+    }
 
+    func calculateImageRect(image: UIImage)-> CGRect{
+        //图片宽高比
+        let scale = image.size.height/image.size.width
+        //利用宽高比计算图片的高度
+        let imageHeight = scale * ScreenWidth
+        //判断当前是长图还是短图
+        var offsetY: CGFloat = 0
+        if imageHeight < ScreenHeight{
+            // 短图
+            // 计算顶部和底部内边距
+            offsetY = (ScreenHeight - imageHeight) * 0.5
+        }
+        let rect = CGRect(x: 0, y: offsetY, width: ScreenWidth, height: imageHeight)
+        return rect
+    }
+}
+//MARK: - PopoverViewDelegate代理
 extension HomeTableViewController : PopoverViewDelegate{
     func didSelectRowAtIndexPath(indexPath: NSIndexPath){
         alert("你选中了【\(menuItems![indexPath.row])】")
         menuPopover?.dismissMenuPopover()
     }
-
     func downBtnArrow() {
         titleButton.selected = false
     }
 }
-
 extension HomeTableViewController{
-
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1
     }
@@ -160,7 +215,7 @@ extension HomeTableViewController{
         }
         return cell
     }
-    /// 计算行高
+    //MARK: - 计算行高
     override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         let viewModel = statuesListModel.statues![indexPath.row]
         // 1.从缓存中获取行高
@@ -183,5 +238,18 @@ extension HomeTableViewController{
         super.didReceiveMemoryWarning()
         // 释放缓存数据
         rowHeightCaches.removeAll()
+    }
+
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        print("HomeTable:didSelectRowAtIndexPath")
+    }
+}
+extension HomeTableViewController: UIViewControllerTransitioningDelegate{
+    func animationControllerForPresentedController(presented: UIViewController, presentingController presenting: UIViewController, sourceController source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        return presentAnimator
+    }
+
+    func animationControllerForDismissedController(dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        return dismissAnimator
     }
 }

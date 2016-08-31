@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9532" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="ToolView" customModule="ZCJWB" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="600" height="40"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c1f-Hb-Mt1">
+                    <rect key="frame" x="0.0" y="0.0" width="150" height="49"/>
+                    <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                    <state key="normal" title="最近">
+                        <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="itemBtnClick:" destination="iN0-l3-epB" eventType="touchUpInside" id="Dmc-pk-MaW"/>
+                    </connections>
+                </button>
+                <button opaque="NO" tag="2" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sq9-pU-dbH">
+                    <rect key="frame" x="300" y="0.0" width="150" height="49"/>
+                    <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
+                    <state key="normal" title="Emoji">
+                        <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="itemBtnClick:" destination="iN0-l3-epB" eventType="touchUpInside" id="QTE-K5-QWD"/>
+                    </connections>
+                </button>
+                <button opaque="NO" tag="3" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bDL-vp-GH9">
+                    <rect key="frame" x="450" y="0.0" width="150" height="49"/>
+                    <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
+                    <state key="normal" title="浪小花">
+                        <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="itemBtnClick:" destination="iN0-l3-epB" eventType="touchUpInside" id="6g6-Ad-uV2"/>
+                    </connections>
+                </button>
+                <button opaque="NO" tag="1" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9CY-mw-0mH">
+                    <rect key="frame" x="150" y="0.0" width="150" height="49"/>
+                    <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
+                    <state key="normal" title="默认">
+                        <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="itemBtnClick:" destination="iN0-l3-epB" eventType="touchUpInside" id="I9F-vz-tFt"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="9CY-mw-0mH" firstAttribute="width" secondItem="c1f-Hb-Mt1" secondAttribute="width" id="0D2-DL-aTg"/>
+                <constraint firstItem="9CY-mw-0mH" firstAttribute="leading" secondItem="c1f-Hb-Mt1" secondAttribute="trailing" id="3KM-DF-AnR"/>
+                <constraint firstAttribute="bottom" secondItem="sq9-pU-dbH" secondAttribute="bottom" id="8YX-bU-lvp"/>
+                <constraint firstItem="bDL-vp-GH9" firstAttribute="width" secondItem="sq9-pU-dbH" secondAttribute="width" id="Is4-yp-GXw"/>
+                <constraint firstAttribute="trailing" secondItem="bDL-vp-GH9" secondAttribute="trailing" id="JXA-Dp-r2L"/>
+                <constraint firstItem="9CY-mw-0mH" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="JcO-wL-YHw"/>
+                <constraint firstAttribute="bottom" secondItem="bDL-vp-GH9" secondAttribute="bottom" id="LKH-aa-Cxx"/>
+                <constraint firstItem="sq9-pU-dbH" firstAttribute="leading" secondItem="9CY-mw-0mH" secondAttribute="trailing" id="Sgv-PJ-E3E"/>
+                <constraint firstItem="sq9-pU-dbH" firstAttribute="leading" secondItem="9CY-mw-0mH" secondAttribute="trailing" id="csO-lA-sJy"/>
+                <constraint firstItem="bDL-vp-GH9" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="eg9-BD-Yp6"/>
+                <constraint firstItem="bDL-vp-GH9" firstAttribute="leading" secondItem="sq9-pU-dbH" secondAttribute="trailing" id="iXU-um-2OM"/>
+                <constraint firstAttribute="bottom" secondItem="9CY-mw-0mH" secondAttribute="bottom" id="j41-Oc-Yed"/>
+                <constraint firstItem="c1f-Hb-Mt1" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="qMT-m4-oDx"/>
+                <constraint firstItem="c1f-Hb-Mt1" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="r6I-Zr-foM"/>
+                <constraint firstItem="sq9-pU-dbH" firstAttribute="width" secondItem="9CY-mw-0mH" secondAttribute="width" id="tfp-25-vye"/>
+                <constraint firstAttribute="bottom" secondItem="c1f-Hb-Mt1" secondAttribute="bottom" id="vfH-zz-xGV"/>
+                <constraint firstItem="sq9-pU-dbH" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="wpf-Uw-ouy"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+        </view>
+    </objects>
+</document>

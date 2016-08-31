@@ -21,7 +21,6 @@ class QRCodeCreateViewController: UIViewController {
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.navigationBar.tintColor = UIColor.whiteColor()
-
     }
 
     //设置UI界面
@@ -42,7 +41,6 @@ class QRCodeCreateViewController: UIViewController {
         containerView.addSubview(messageLbl)
     }
     private func setupFrameConstants(){
-
         //容器约束
         let _width = (ScreenWidth/13)*11
         containerView.snp_makeConstraints { (make) -> Void in
@@ -50,13 +48,11 @@ class QRCodeCreateViewController: UIViewController {
             make.width.equalTo(_width)
             make.height.equalTo(((ScreenHeight-67)/5)*4)
         }
-
         //指纹背景约束
         fingerprintImageView.snp_makeConstraints { (make) -> Void in
             make.centerX.equalTo(view.snp_centerX)
             make.top.equalTo(25)
         }
-
         //二维码约束
         qrcodeImageView.snp_makeConstraints { (make) -> Void in
             make.centerX.equalTo(view.snp_centerX)
@@ -83,14 +79,12 @@ class QRCodeCreateViewController: UIViewController {
             make.top.equalTo(headImageView.snp_bottom).offset(10)
             make.width.equalTo(100)
         }
-
         //说明
         messageLbl.snp_makeConstraints { (make) -> Void in
             make.centerX.equalTo(view.snp_centerX)
             make.top.equalTo(userNameLbl.snp_bottom).offset(10)
             make.width.equalTo(200)
         }
-
     }
 
     //生成二维码
@@ -152,6 +146,7 @@ class QRCodeCreateViewController: UIViewController {
         btn.setTitle("返回", forState: .Normal)
         btn.addTarget(self, action: Selector("backBtnClick:"), forControlEvents: .TouchUpInside)
         btn.setImage(R.image.back, forState: .Normal)
+
         btn.setTitleColor(UIColor.darkGrayColor(), forState: .Normal)
         btn.sizeToFit()
         return btn

@@ -10,6 +10,7 @@ struct R {
   }
   
   struct file {
+    static var emoticonsBundle: NSURL? { return _R.hostingBundle?.URLForResource("Emoticons", withExtension: "bundle") }
     static var mainVCSettingsJson: NSURL? { return _R.hostingBundle?.URLForResource("MainVCSettings", withExtension: "json") }
   }
   
@@ -30,7 +31,11 @@ struct R {
     static var back: UIImage? { if #available(iOS 8.0, *) { return UIImage(named: "back", inBundle: _R.hostingBundle, compatibleWithTraitCollection: nil) } else { return UIImage(named: "back") } }
     static var barbuttonicon_back: UIImage? { if #available(iOS 8.0, *) { return UIImage(named: "barbuttonicon_back", inBundle: _R.hostingBundle, compatibleWithTraitCollection: nil) } else { return UIImage(named: "barbuttonicon_back") } }
     static var barbuttonicon_more: UIImage? { if #available(iOS 8.0, *) { return UIImage(named: "barbuttonicon_more", inBundle: _R.hostingBundle, compatibleWithTraitCollection: nil) } else { return UIImage(named: "barbuttonicon_more") } }
+    static var camera_tag_delete_right: UIImage? { if #available(iOS 8.0, *) { return UIImage(named: "camera_tag_delete_right", inBundle: _R.hostingBundle, compatibleWithTraitCollection: nil) } else { return UIImage(named: "camera_tag_delete_right") } }
+    static var common_button_big_orange: UIImage? { if #available(iOS 8.0, *) { return UIImage(named: "common_button_big_orange", inBundle: _R.hostingBundle, compatibleWithTraitCollection: nil) } else { return UIImage(named: "common_button_big_orange") } }
+    static var common_button_big_orange_highlighted: UIImage? { if #available(iOS 8.0, *) { return UIImage(named: "common_button_big_orange_highlighted", inBundle: _R.hostingBundle, compatibleWithTraitCollection: nil) } else { return UIImage(named: "common_button_big_orange_highlighted") } }
     static var common_button_white_disable: UIImage? { if #available(iOS 8.0, *) { return UIImage(named: "common_button_white_disable", inBundle: _R.hostingBundle, compatibleWithTraitCollection: nil) } else { return UIImage(named: "common_button_white_disable") } }
+    static var common_feed_image_gif: UIImage? { if #available(iOS 8.0, *) { return UIImage(named: "common_feed_image_gif", inBundle: _R.hostingBundle, compatibleWithTraitCollection: nil) } else { return UIImage(named: "common_feed_image_gif") } }
     static var common_icon_membership: UIImage? { if #available(iOS 8.0, *) { return UIImage(named: "common_icon_membership", inBundle: _R.hostingBundle, compatibleWithTraitCollection: nil) } else { return UIImage(named: "common_icon_membership") } }
     static var common_icon_membership_expired: UIImage? { if #available(iOS 8.0, *) { return UIImage(named: "common_icon_membership_expired", inBundle: _R.hostingBundle, compatibleWithTraitCollection: nil) } else { return UIImage(named: "common_icon_membership_expired") } }
     static var common_icon_membership_level1: UIImage? { if #available(iOS 8.0, *) { return UIImage(named: "common_icon_membership_level1", inBundle: _R.hostingBundle, compatibleWithTraitCollection: nil) } else { return UIImage(named: "common_icon_membership_level1") } }
@@ -39,6 +44,28 @@ struct R {
     static var common_icon_membership_level4: UIImage? { if #available(iOS 8.0, *) { return UIImage(named: "common_icon_membership_level4", inBundle: _R.hostingBundle, compatibleWithTraitCollection: nil) } else { return UIImage(named: "common_icon_membership_level4") } }
     static var common_icon_membership_level5: UIImage? { if #available(iOS 8.0, *) { return UIImage(named: "common_icon_membership_level5", inBundle: _R.hostingBundle, compatibleWithTraitCollection: nil) } else { return UIImage(named: "common_icon_membership_level5") } }
     static var common_icon_membership_level6: UIImage? { if #available(iOS 8.0, *) { return UIImage(named: "common_icon_membership_level6", inBundle: _R.hostingBundle, compatibleWithTraitCollection: nil) } else { return UIImage(named: "common_icon_membership_level6") } }
+    static var compose_emoticonbutton_background: UIImage? { if #available(iOS 8.0, *) { return UIImage(named: "compose_emoticonbutton_background", inBundle: _R.hostingBundle, compatibleWithTraitCollection: nil) } else { return UIImage(named: "compose_emoticonbutton_background") } }
+    static var compose_emoticonbutton_background_highlighted: UIImage? { if #available(iOS 8.0, *) { return UIImage(named: "compose_emoticonbutton_background_highlighted", inBundle: _R.hostingBundle, compatibleWithTraitCollection: nil) } else { return UIImage(named: "compose_emoticonbutton_background_highlighted") } }
+    static var compose_emotion_delete: UIImage? { if #available(iOS 8.0, *) { return UIImage(named: "compose_emotion_delete", inBundle: _R.hostingBundle, compatibleWithTraitCollection: nil) } else { return UIImage(named: "compose_emotion_delete") } }
+    static var compose_emotion_delete_highlighted: UIImage? { if #available(iOS 8.0, *) { return UIImage(named: "compose_emotion_delete_highlighted", inBundle: _R.hostingBundle, compatibleWithTraitCollection: nil) } else { return UIImage(named: "compose_emotion_delete_highlighted") } }
+    static var compose_guide_check_box_default: UIImage? { if #available(iOS 8.0, *) { return UIImage(named: "compose_guide_check_box_default", inBundle: _R.hostingBundle, compatibleWithTraitCollection: nil) } else { return UIImage(named: "compose_guide_check_box_default") } }
+    static var compose_guide_check_box_right: UIImage? { if #available(iOS 8.0, *) { return UIImage(named: "compose_guide_check_box_right", inBundle: _R.hostingBundle, compatibleWithTraitCollection: nil) } else { return UIImage(named: "compose_guide_check_box_right") } }
+    static var compose_image_longimage: UIImage? { if #available(iOS 8.0, *) { return UIImage(named: "compose_image_longimage", inBundle: _R.hostingBundle, compatibleWithTraitCollection: nil) } else { return UIImage(named: "compose_image_longimage") } }
+    static var compose_locatebutton_ready: UIImage? { if #available(iOS 8.0, *) { return UIImage(named: "compose_locatebutton_ready", inBundle: _R.hostingBundle, compatibleWithTraitCollection: nil) } else { return UIImage(named: "compose_locatebutton_ready") } }
+    static var compose_locatebutton_succeeded: UIImage? { if #available(iOS 8.0, *) { return UIImage(named: "compose_locatebutton_succeeded", inBundle: _R.hostingBundle, compatibleWithTraitCollection: nil) } else { return UIImage(named: "compose_locatebutton_succeeded") } }
+    static var compose_mentionbutton_background: UIImage? { if #available(iOS 8.0, *) { return UIImage(named: "compose_mentionbutton_background", inBundle: _R.hostingBundle, compatibleWithTraitCollection: nil) } else { return UIImage(named: "compose_mentionbutton_background") } }
+    static var compose_mentionbutton_background_highlighted: UIImage? { if #available(iOS 8.0, *) { return UIImage(named: "compose_mentionbutton_background_highlighted", inBundle: _R.hostingBundle, compatibleWithTraitCollection: nil) } else { return UIImage(named: "compose_mentionbutton_background_highlighted") } }
+    static var compose_photo_original: UIImage? { if #available(iOS 8.0, *) { return UIImage(named: "compose_photo_original", inBundle: _R.hostingBundle, compatibleWithTraitCollection: nil) } else { return UIImage(named: "compose_photo_original") } }
+    static var compose_photo_original_highlighted: UIImage? { if #available(iOS 8.0, *) { return UIImage(named: "compose_photo_original_highlighted", inBundle: _R.hostingBundle, compatibleWithTraitCollection: nil) } else { return UIImage(named: "compose_photo_original_highlighted") } }
+    static var compose_photo_photograph: UIImage? { if #available(iOS 8.0, *) { return UIImage(named: "compose_photo_photograph", inBundle: _R.hostingBundle, compatibleWithTraitCollection: nil) } else { return UIImage(named: "compose_photo_photograph") } }
+    static var compose_pic_add: UIImage? { if #available(iOS 8.0, *) { return UIImage(named: "compose_pic_add", inBundle: _R.hostingBundle, compatibleWithTraitCollection: nil) } else { return UIImage(named: "compose_pic_add") } }
+    static var compose_publicbutton: UIImage? { if #available(iOS 8.0, *) { return UIImage(named: "compose_publicbutton", inBundle: _R.hostingBundle, compatibleWithTraitCollection: nil) } else { return UIImage(named: "compose_publicbutton") } }
+    static var compose_toolbar_more: UIImage? { if #available(iOS 8.0, *) { return UIImage(named: "compose_toolbar_more", inBundle: _R.hostingBundle, compatibleWithTraitCollection: nil) } else { return UIImage(named: "compose_toolbar_more") } }
+    static var compose_toolbar_more_highlighted: UIImage? { if #available(iOS 8.0, *) { return UIImage(named: "compose_toolbar_more_highlighted", inBundle: _R.hostingBundle, compatibleWithTraitCollection: nil) } else { return UIImage(named: "compose_toolbar_more_highlighted") } }
+    static var compose_toolbar_picture: UIImage? { if #available(iOS 8.0, *) { return UIImage(named: "compose_toolbar_picture", inBundle: _R.hostingBundle, compatibleWithTraitCollection: nil) } else { return UIImage(named: "compose_toolbar_picture") } }
+    static var compose_toolbar_picture_highlighted: UIImage? { if #available(iOS 8.0, *) { return UIImage(named: "compose_toolbar_picture_highlighted", inBundle: _R.hostingBundle, compatibleWithTraitCollection: nil) } else { return UIImage(named: "compose_toolbar_picture_highlighted") } }
+    static var compose_trendbutton_background: UIImage? { if #available(iOS 8.0, *) { return UIImage(named: "compose_trendbutton_background", inBundle: _R.hostingBundle, compatibleWithTraitCollection: nil) } else { return UIImage(named: "compose_trendbutton_background") } }
+    static var compose_trendbutton_background_highlighted: UIImage? { if #available(iOS 8.0, *) { return UIImage(named: "compose_trendbutton_background_highlighted", inBundle: _R.hostingBundle, compatibleWithTraitCollection: nil) } else { return UIImage(named: "compose_trendbutton_background_highlighted") } }
     static var defaultLine: UIImage? { if #available(iOS 8.0, *) { return UIImage(named: "DefaultLine", inBundle: _R.hostingBundle, compatibleWithTraitCollection: nil) } else { return UIImage(named: "DefaultLine") } }
     static var launchImage: UIImage? { if #available(iOS 8.0, *) { return UIImage(named: "LaunchImage", inBundle: _R.hostingBundle, compatibleWithTraitCollection: nil) } else { return UIImage(named: "LaunchImage") } }
     static var menu_PopOver_BG: UIImage? { if #available(iOS 8.0, *) { return UIImage(named: "Menu_PopOver_BG", inBundle: _R.hostingBundle, compatibleWithTraitCollection: nil) } else { return UIImage(named: "Menu_PopOver_BG") } }
@@ -140,6 +167,7 @@ struct R {
   }
   
   struct nib {
+    static var toolView: _R.nib._ToolView { return _R.nib._ToolView() }
     static var visitorView: _R.nib._VisitorView { return _R.nib._VisitorView() }
   }
   
@@ -175,6 +203,19 @@ struct _R {
   static var hostingBundle: NSBundle? { return NSBundle(identifier: "com.zhou.ZCJWB") }
   
   struct nib {
+    struct _ToolView: NibResource {
+      var instance: UINib { return UINib.init(nibName: "ToolView", bundle: _R.hostingBundle) }
+      var name: String { return "ToolView" }
+      
+      func firstView(ownerOrNil: AnyObject?, options optionsOrNil: [NSObject : AnyObject]?) -> ToolView? {
+        return instantiateWithOwner(ownerOrNil, options: optionsOrNil)[0] as? ToolView
+      }
+      
+      func instantiateWithOwner(ownerOrNil: AnyObject?, options optionsOrNil: [NSObject : AnyObject]?) -> [AnyObject] {
+        return instance.instantiateWithOwner(ownerOrNil, options: optionsOrNil)
+      }
+    }
+    
     struct _VisitorView: NibResource {
       var instance: UINib { return UINib.init(nibName: "VisitorView", bundle: _R.hostingBundle) }
       var name: String { return "VisitorView" }

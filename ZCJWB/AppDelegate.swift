@@ -18,8 +18,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         //一般情况下全局性的东西要在AppDelegate设置
         UINavigationBar.appearance().tintColor = UIColor.orangeColor()
         UITabBar.appearance().tintColor = UIColor.orangeColor()
-//        let image = UIImage.imageWithColor(UIColor(red: 1, green: 1, blue: 1, alpha: 0.93))
-//        UINavigationBar.appearance().setBackgroundImage(image, forBarMetrics: .Default)
         UINavigationBar.appearance().barStyle = .Default
         //注册监听
         NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("switchRootViewController:"), name: SwitchRootViewController, object: nil)
@@ -38,7 +36,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 }
 
 extension AppDelegate{
-
+    //切换视图
     func switchRootViewController(notice: NSNotification){
         if notice.object as! Bool{
             //切换到首页
@@ -48,8 +46,6 @@ extension AppDelegate{
             window?.rootViewController = WelcomeViewController()
         }
     }
-
-
     private func defaultsVC() -> UIViewController{
         //判断是否登录
         if UserAccount.isLogin() {
@@ -59,7 +55,7 @@ extension AppDelegate{
         //没有登录就去登录
         return MainViewController()
     }
-
+    //判断是否有新版本
     private func isNewVersion() -> Bool{
         //加载info.plist
         //获取当前版本号

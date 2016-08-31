@@ -22,15 +22,16 @@ class StatusViewModel: NSObject {
     /// 微博格式化之后的来源
     var source_Text: String = ""
     /// 每条微博的所有图片url地址
-    var thumbpics:[NSURL]?
+    var thumbpics: [NSURL]?
+    //中等图片
+    var bmiddle_urls: [NSURL]?
+
 
     init(status: WBStatus)
     {
         self.status = status
-
         // 处理头像
         icon_URL = NSURL(string: status.user?.profile_image_url ?? "")
-
         // 处理会员图标
         if status.user?.mbrank >= 1 && status.user?.mbrank <= 6  {
             mbrankImage = UIImage(named: "common_icon_membership_level\(status.user!.mbrank)")
@@ -46,7 +47,6 @@ class StatusViewModel: NSObject {
             default:
                 verified_image = nil
         }
-
         // 处理来源
         if let sourceStr: NSString = status.source where sourceStr != "" {
             // 6.1获取从什么地方开始截取
@@ -57,7 +57,6 @@ class StatusViewModel: NSObject {
             let rest = sourceStr.substringWithRange(NSMakeRange(startIndex, length))
             source_Text = "来自: " + rest
         }
-
         // 处理时间
         // "Sun Dec 06 11:10:41 +0800 2015"
         if let timeStr = status.created_at where timeStr != ""{
@@ -67,16 +66,17 @@ class StatusViewModel: NSObject {
             // 2.生成发布微博时间对应的字符串
             created_Time = createDate.descriptionStr()
         }
-
         // 处理图片url
-//        if let picurls = status.pic_urls {
         if let picurls = (status.retweeted_status != nil) ? status.retweeted_status?.pic_urls : status.pic_urls {
             thumbpics = [NSURL]()
+            bmiddle_urls = [NSURL]()
             for picurl in picurls {
-                guard let url = picurl["thumbnail_pic"] as? String else{
+                guard var urlStr = picurl["thumbnail_pic"] as? String else{
                     return
                 }
-                thumbpics?.append(NSURL(string: url)!)
+                thumbpics?.append(NSURL(string: urlStr)!)
+                urlStr = urlStr.stringByReplacingOccurrencesOfString("thumbnail", withString: "bmiddle")
+                bmiddle_urls?.append(NSURL(string: urlStr)!)
             }
         }
 

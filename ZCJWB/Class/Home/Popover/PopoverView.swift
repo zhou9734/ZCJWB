@@ -49,7 +49,6 @@ class PopoverView: UIView {
         menuItemTableView.backgroundView = bgView
         addSubview(menuItemTableView)
         containButton?.addSubview(self)
-
     }
 
     //显示UIView
@@ -75,25 +74,6 @@ class PopoverView: UIView {
             self.containButton?.removeFromSuperview()
         })
     }
-    /*
-    func layoutUIForInterfaceOrientation(interfaceOrientation: UIInterfaceOrientation){
-
-        let  landscape: Bool = interfaceOrientation == UIInterfaceOrientation.LandscapeLeft || interfaceOrientation == UIInterfaceOrientation.LandscapeRight
-        let menPointerView = containButton?.viewWithTag(MENU_POINTER_TAG) as! UIImageView
-
-        let menuItemTableView = containButton?.viewWithTag(MENU_TABLE_VIEW_TAG) as! UITableView
-        var originX = menPointerView.frame.origin.x
-        if landscape {
-            originX = originX + 50
-        }else{
-            originX = originX - 50
-        }
-
-        menPointerView.frame = CGRectMake(originX , menPointerView.frame.origin.y, menPointerView.frame.size.width, menPointerView.frame.size.height)
-        menuItemTableView.frame = CGRectMake(originX, menuItemTableView.frame.origin.y, menuItemTableView.frame.size.width, menuItemTableView.frame.size.height)
-    }
-    */
-
 }
 
 extension PopoverView: UITableViewDataSource, UITableViewDelegate{
@@ -120,12 +100,6 @@ extension PopoverView: UITableViewDataSource, UITableViewDelegate{
             //给cell赋值
             cell!.textLabel?.text = self.menuItmes![indexPath.row]
             cell?.backgroundColor = UIColor.clearColor()
-
-            //设置图片
-//            let image = UIImage(named: "img/icons/\(self.icons[indexPath.row])")
-//            cell.imageView?.image = image
-//            cell.imageView?.layer.masksToBounds = true
-
             cell!.accessoryType = .None
         }
 

@@ -35,6 +35,8 @@ class WBPicCollectionView: UICollectionView {
     }
     
     init(){
+        collectionlayout.minimumLineSpacing = 3
+        collectionlayout.minimumInteritemSpacing = 3
         super.init(frame: CGRectZero, collectionViewLayout: collectionlayout)
         registerClass(WBPicCollectionViewCell.self, forCellWithReuseIdentifier: WBIdentifier)
         dataSource = self
@@ -68,9 +70,9 @@ class WBPicCollectionView: UICollectionView {
             let image = SDWebImageManager.sharedManager().imageCache.imageFromDiskCacheForKey(key)
             return (image.size, image.size)
         }
-        let imageWidth = 90
-        let imageHeight = 90
-        let imageMargin = 10
+        let imageMargin = 3
+        let imageWidth = Int((ScreenWidth - 26)/3)
+        let imageHeight = imageWidth
         //四张图片
         if count == 4 {
             let col = 2   //列
@@ -78,6 +80,7 @@ class WBPicCollectionView: UICollectionView {
             //宽度 = 图片的宽度 * 列数 + (列数 - 1 ) * 间隙
             //高度 = 图片的高度 * 行书 + (行数 - 1 ) * 间隙
             let _width = imageWidth * col + (col - 1 ) * imageMargin
+
             let _height = imageHeight * row + (row - 1) * imageMargin
             return (CGSize(width: imageWidth, height: imageHeight), CGSize(width: _width, height: _height))
         }
@@ -90,6 +93,7 @@ class WBPicCollectionView: UICollectionView {
     }
 
 }
+//MARK: - UICollectionViewDataSource代理
 extension WBPicCollectionView: UICollectionViewDataSource{
     func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
         return 1
@@ -103,14 +107,33 @@ extension WBPicCollectionView: UICollectionViewDataSource{
         return cell
     }
 }
+//MARK: - UICollectionViewDelegate代理
 extension WBPicCollectionView: UICollectionViewDelegate{
+    func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+        let cell = collectionView.cellForItemAtIndexPath(indexPath) as! WBPicCollectionViewCell
+        //用collectionView转换cell的位置
+        let cellRect = collectionView.convertRect(cell.frame, toView: nil)
+        //获取点击的图片的url
+        let url = viewModel!.bmiddle_urls![indexPath.item]
+        SDWebImageManager.sharedManager().downloadImageWithURL(url, options: SDWebImageOptions(rawValue: 0), progress: { (current, total) -> Void in
+                cell.imageView.progress = CGFloat(current)/CGFloat(total)
+            }) { (_, error, _, _, _) -> Void in
+                NSNotificationCenter.defaultCenter().postNotificationName(BrowserPicViewController, object: self, userInfo: ["bmiddle_urls": self.viewModel!.bmiddle_urls! ,
+                    "indexPath" : indexPath, "originFrame" : NSStringFromCGRect(cellRect), "wbPicClv": collectionView] )
+        }
 
+
+    }
 }
 
 class WBPicCollectionViewCell: UICollectionViewCell {
     var url : NSURL?{
         didSet{
             imageView.sd_setImageWithURL(url)
+            //设置显示隐藏gif图标
+            if let flag = url?.absoluteString.lowercaseString.hasSuffix("gif") {
+                gifImageView.hidden = !flag
+            }
         }
     }
     override init(frame: CGRect) {
@@ -124,14 +147,27 @@ class WBPicCollectionViewCell: UICollectionViewCell {
 
     private func setupUI(){
         contentView.addSubview(imageView)
+        contentView.addSubview(gifImageView)
+    }
+    override func layoutSubviews() {
         imageView.snp_makeConstraints { (make) -> Void in
             make.edges.equalTo(0)
         }
+        gifImageView.snp_makeConstraints { (make) -> Void in
+            make.bottom.equalTo(imageView.snp_bottom)
+            make.right.equalTo(imageView.snp_right)
+        }
     }
-    private lazy var imageView: UIImageView = {
-        let _imageView = UIImageView()
+    lazy var imageView: ProgressImageView = {
+        let _imageView = ProgressImageView(frame: CGRectZero)
         _imageView.contentMode = .ScaleAspectFill
         _imageView.clipsToBounds = true
         return _imageView
+    }()
+    private lazy var gifImageView: UIImageView = {
+        let imageView = UIImageView()
+        imageView.image = R.image.common_feed_image_gif
+        imageView.sizeToFit()
+        return imageView
     }()
 }

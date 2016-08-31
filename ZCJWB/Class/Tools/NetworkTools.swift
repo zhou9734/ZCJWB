@@ -23,7 +23,13 @@ class NetworkTools: AFHTTPSessionManager {
 
 
     //MARK: - 外部控制方法
-
+    /**
+        加载数据
+    - parameter since_id: 下拉刷新
+    - parameter max_id:   上拉加载更多
+    - parameter finished: 完成回调
+    */
+    //MARK: - 加载微博数据
     func loadStatuses(since_id: String, max_id: String, finished: (data: [[String: AnyObject]]?, error: NSError?)->()){
         //校验
         let _account = UserAccount.loadAccount()
@@ -43,6 +49,32 @@ class NetworkTools: AFHTTPSessionManager {
                 finished(data: array, error: nil)
             }) { (task, error) -> Void in
                 finished(data: nil, error: error)
+        }
+    }
+
+    //MARK: - 发送一条微博
+    func sendStatus(status: String?,image: UIImage?, visible: Int = 0, finished: (data: AnyObject?, error: NSError?) -> ()){
+        //校验
+        let _account = UserAccount.loadAccount()
+        assert(_account != nil, "必须授权之后才能获取微博数据")
+        var path = "2/statuses/update.json"
+        let param = ["access_token": _account!.access_token!, "status": status ?? "", "visible" : visible]
+        if let pic = image{
+            path = "2/statuses/upload.json"
+            POST(path, parameters: param, constructingBodyWithBlock: { (formData) -> Void in
+                let picData = UIImagePNGRepresentation(pic)
+                formData.appendPartWithFileData(picData!, name: "pic", fileName: "a.png", mimeType: "application/octet-stream")
+                }, success: { (task, data) -> Void in
+                    finished(data: data , error: nil)
+                }, failure: { (task, error) -> Void in
+                    finished(data: nil, error: error)
+            })
+        }else{
+            POST(path, parameters: param, success: { (task, data) -> Void in
+                    finished(data: data , error: nil)
+                }) { (task, error) -> Void in
+                    finished(data: nil, error: error)
+            }
         }
     }
 }

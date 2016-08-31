@@ -71,6 +71,7 @@ extension NewFeatureViewController: UICollectionViewDelegate {
 //MARK: - 自定义collectionView布局
 class ZCJCollectionViewFlowLayout: UICollectionViewFlowLayout  {
     override func prepareLayout() {
+        super.prepareLayout()
         //设置每个cell尺寸
         itemSize = UIScreen.mainScreen().bounds.size
         // 最小的行距

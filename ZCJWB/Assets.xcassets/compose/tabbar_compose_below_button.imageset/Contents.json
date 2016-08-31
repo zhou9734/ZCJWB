@@ -5,6 +5,20 @@
       "scale" : "1x"
     },
     {
+      "resizing" : {
+        "mode" : "9-part",
+        "center" : {
+          "mode" : "tile",
+          "width" : 1,
+          "height" : 28
+        },
+        "cap-insets" : {
+          "bottom" : 48,
+          "top" : 10,
+          "right" : 20,
+          "left" : 22
+        }
+      },
       "idiom" : "universal",
       "filename" : "tabbar_compose_below_button@2x.png",
       "scale" : "2x"

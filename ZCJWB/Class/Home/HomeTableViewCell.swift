@@ -18,7 +18,7 @@ class HomeTableViewCell: UITableViewCell {
             //设置名称
             nameLbl.text = viewModel?.status.user?.screen_name
             nameLbl.textColor = UIColor.blackColor()
-            vipImageView.image = UIImage.imageWithColor(UIColor.clearColor())
+            vipImageView.image = nil
             if let image = viewModel!.mbrankImage {
                 nameLbl.textColor = UIColor.orangeColor()
                 //设置vip
@@ -56,8 +56,7 @@ class HomeTableViewCell: UITableViewCell {
     }
 
     //MARK: - 外部控制方法
-    func calculateRowHeight(viewModel: StatusViewModel) -> CGFloat
-    {
+    func calculateRowHeight(viewModel: StatusViewModel) -> CGFloat{
         self.viewModel = viewModel
         // 返回底部视图最大的Y
         return CGRectGetMaxY(btnContainerView.frame)
@@ -93,7 +92,7 @@ class HomeTableViewCell: UITableViewCell {
             make.top.equalTo(10)
             make.size.equalTo(CGSize(width: 50, height: 50))
         }
-        iconImageView.layer.cornerRadius = 30
+        iconImageView.layer.cornerRadius = 25
         iconImageView.layer.masksToBounds = true
         verifiedImageView.snp_makeConstraints { (make) -> Void in
             make.width.height.equalTo(18)
@@ -166,6 +165,7 @@ class HomeTableViewCell: UITableViewCell {
             make.right.bottom.top.equalTo(btnContainerView)
         }
     }
+
     /// 图标
     private lazy var iconImageView = UIImageView()
     /// 认证

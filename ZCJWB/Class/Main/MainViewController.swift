@@ -62,7 +62,6 @@ class MainViewController: UITabBarController {
             addChildViewController("NullViewController", title: "", imageName: "")
             addChildViewController("DiscoverTableViewController", title: "发现", imageName: "tabbar_discover")
             addChildViewController("ProfileTableViewController", title: "我", imageName: "tabbar_profile")
-
         }
     }
 
@@ -88,7 +87,7 @@ class MainViewController: UITabBarController {
         let childController = typeCls.init()
 
         childController.title = title
-        if let imName = imageName {
+        if let imName = imageName where imName != ""{
             childController.tabBarItem.image = UIImage(named: imName)
             childController.tabBarItem.selectedImage = UIImage(named: imName + "_highlighted")
         }
@@ -107,6 +106,6 @@ class MainViewController: UITabBarController {
     }()
 
     @objc private func composeBtnClick(){
-        NJLog("xxxxxx")
+        presentViewController(ComposeViewController(), animated: true, completion: nil)
     }
 }
