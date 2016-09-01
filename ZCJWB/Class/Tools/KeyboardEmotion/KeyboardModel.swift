@@ -30,6 +30,9 @@ class KeyboardModel: NSObject {
     init(id: String) {
         self.id = id
     }
+    override init() {
+        super.init()
+    }
     static let packageList: [KeyboardModel] = KeyboardModel.loadEmotionPackages()
     /// 加载所有组数据
     private class func loadEmotionPackages() -> [KeyboardModel] {
@@ -79,7 +82,7 @@ class KeyboardModel: NSObject {
                 let emoticon = KeyboardEmoticon(isRemoveButton: true)
                 models.append(emoticon)
                 index = 0
-                continue
+//                continue
             }
             let emoticon = KeyboardEmoticon(dict: emoticonDict, id: self.id!)
             models.append(emoticon)
@@ -125,6 +128,44 @@ class KeyboardModel: NSObject {
         // 4.添加一个删除按钮
         emoticons?.append(KeyboardEmoticon(isRemoveButton: true))
     }
+
+    class func emoticonWithString(str: String) -> KeyboardEmoticon?{
+        let packages = KeyboardModel.loadEmotionPackages()
+        var kEmoticon: KeyboardEmoticon?
+        for model in packages{
+            kEmoticon = model.emoticons!.filter({ (em) -> Bool in
+                return em.chs == str
+            }).last
+            if kEmoticon != nil{
+                break
+            }
+        }
+        return kEmoticon
+    }
+
+    class func filterEmoticon(text: String?) -> NSMutableAttributedString?{
+        guard let str = text else{
+            return nil
+        }
+        do{
+            let pattern = "\\[.*?\\]"
+            let strM = NSMutableAttributedString(string: str)
+            let regex = try NSRegularExpression(pattern: pattern, options: NSRegularExpressionOptions.CaseInsensitive)
+            var results =  regex.matchesInString(str, options: NSMatchingOptions(rawValue: 0), range: NSMakeRange(0, str.characters.count))
+            results = results.reverse()
+            for res in results{
+                let chsStr = (str as NSString).substringWithRange(res.range)
+                if let emticon = emoticonWithString(chsStr){
+                    let attrStr = EmoticonTextAttachment.imageText(emticon, font: UIFont.systemFontOfSize(17))
+                    strM.replaceCharactersInRange(res.range, withAttributedString: attrStr)
+                }
+            }
+            return strM
+        }catch{
+            print(error)
+        }
+        return nil
+    }
 }
 
 class KeyboardEmoticon: NSObject {
@@ -160,6 +201,10 @@ class KeyboardEmoticon: NSObject {
     var isRemoveButton: Bool = false
     /// 记录当前表情的使用次数
     var count: Int = 0
+
+    override init() {
+        super.init()
+    }
 
     init(dict: [String: AnyObject], id: String){
         self.id = id

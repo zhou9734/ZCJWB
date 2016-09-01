@@ -32,8 +32,8 @@ class HomeTableViewController: BaseTableViewController {
         //初始化导航条
         setupNav()
         //注册HomeTableViewCell
-        tableView.registerClass(HomeTableViewCell.classForCoder(), forCellReuseIdentifier: HomeIdentifier)
-        tableView.estimatedRowHeight = 300 //预估行高
+        tableView.registerClass(HomeTableViewCell.self, forCellReuseIdentifier: HomeIdentifier)
+//        tableView.estimatedRowHeight = 300 //预估行高
         //分割线隐藏
         tableView.separatorStyle = .None
         refreshControl = ZCJRefreshControl()

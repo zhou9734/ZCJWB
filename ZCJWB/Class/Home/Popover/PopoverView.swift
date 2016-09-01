@@ -99,7 +99,7 @@ extension PopoverView: UITableViewDataSource, UITableViewDelegate{
             cell!.selectionStyle = .Gray
             //给cell赋值
             cell!.textLabel?.text = self.menuItmes![indexPath.row]
-            cell?.backgroundColor = UIColor.clearColor()
+            cell?.backgroundColor = UIColor(red: 234.0/255.0, green: 234.0/255.0, blue: 241.0/255.0, alpha: 1)
             cell!.accessoryType = .None
         }
 

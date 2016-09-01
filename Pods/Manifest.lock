@@ -20,6 +20,7 @@ PODS:
   - AFNetworking/UIKit (2.6.3):
     - AFNetworking/NSURLConnection
     - AFNetworking/NSURLSession
+  - KILabel (1.0.1)
   - R.swift (0.13.0)
   - SDWebImage (3.8.1):
     - SDWebImage/Core (= 3.8.1)
@@ -31,6 +32,7 @@ PODS:
 
 DEPENDENCIES:
   - AFNetworking (~> 2.6.3)
+  - KILabel (= 1.0.1)
   - R.swift (~> 0.13.0)
   - SDWebImage (~> 3.8)
   - SVProgressHUD (~> 2.0.3)
@@ -38,11 +40,12 @@ DEPENDENCIES:
 
 SPEC CHECKSUMS:
   AFNetworking: cb8d14a848e831097108418f5d49217339d4eb60
+  KILabel: 4797807cdc0b4992dad8bf91175ddc973c3b569b
   R.swift: 07e0796d2b4d50b875eb7de9bd8e6193e15c6434
   SDWebImage: 35f9627a3e44b4f292a8a8ce6a531fa488239b91
   SVProgressHUD: b0830714205bea1317ea1a2ebc71e5633af334d4
   ZXingObjC: bf15b3814f7a105b6d99f47da2333c93a063650a
 
-PODFILE CHECKSUM: 6720204590069b8c879d191d62f19e2b9882ba5f
+PODFILE CHECKSUM: c8572694de04435ebb1ec2af430f735d309d2413
 
 COCOAPODS: 1.1.0.beta.1

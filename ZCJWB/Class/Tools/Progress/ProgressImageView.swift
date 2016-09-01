@@ -28,7 +28,7 @@ class ProgressImageView: UIImageView {
     // MARK: - 内部控制方法
     private func setupUI(){
         addSubview(progressView)
-        progressView.backgroundColor = UIColor.clearColor()
+        progressView.backgroundColor = UIColor(red: 234.0/255.0, green: 234.0/255.0, blue: 241.0/255.0, alpha: 0)
     }
     override func layoutSubviews() {
         super.layoutSubviews()

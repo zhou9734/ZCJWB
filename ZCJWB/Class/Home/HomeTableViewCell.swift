@@ -8,6 +8,7 @@
 
 import UIKit
 import SDWebImage
+import KILabel
 class HomeTableViewCell: UITableViewCell {
     var viewModel: StatusViewModel?{
         didSet{
@@ -29,11 +30,13 @@ class HomeTableViewCell: UITableViewCell {
             //设置来源
             sourceLbl.text = viewModel!.source_Text
             //设置正文
-            textLbl.text = viewModel?.status.text
+            textLbl.attributedText = KeyboardModel.filterEmoticon(viewModel?.status.text)
+
             //转发微博
             if let retween_status = viewModel?.status.retweeted_status {
                 let screen_name = retween_status.user?.screen_name ?? ""
-                retweetedLbl.text = "@" + screen_name + ":" + (retween_status.text ?? "")
+                let str = "@" + screen_name + ":" + (retween_status.text ?? "")
+                retweetedLbl.attributedText = KeyboardModel.filterEmoticon(str)
                 retweetedView.backgroundColor = UIColor(red: 239.0/255.0, green: 239.0/255.0, blue: 239.0/255.0, alpha: 1)
             }else{
                 retweetedLbl.text = ""
@@ -48,11 +51,16 @@ class HomeTableViewCell: UITableViewCell {
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         setupUI()
-        setupFrameCons()
     }
 
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        btnContainerView.translatesAutoresizingMaskIntoConstraints = false
+        setupFrameCons()
     }
 
     //MARK: - 外部控制方法
@@ -150,22 +158,22 @@ class HomeTableViewCell: UITableViewCell {
             make.left.right.equalTo(contentView)
             make.height.equalTo(44)
         }
+        let _width = ScreenWidth/3
         btnContainerView.backgroundColor = UIColor.grayColor()
         forwardBtn.snp_makeConstraints { (make) -> Void in
             make.left.top.bottom.equalTo(btnContainerView)
-            make.width.equalTo(commentBtn.snp_width)
+            make.width.equalTo(_width)
         }
         commentBtn.snp_makeConstraints { (make) -> Void in
             make.bottom.top.equalTo(btnContainerView)
-            make.width.equalTo(likeBtn.snp_width)
-            make.left.equalTo(forwardBtn.snp_right)
-            make.right.equalTo(likeBtn.snp_left)
+            make.left.equalTo(forwardBtn.snp_right).offset(1)
+            make.width.equalTo(_width)
         }
         likeBtn.snp_makeConstraints { (make) -> Void in
             make.right.bottom.top.equalTo(btnContainerView)
+            make.width.equalTo((_width - 1.5))
         }
     }
-
     /// 图标
     private lazy var iconImageView = UIImageView()
     /// 认证
@@ -179,26 +187,26 @@ class HomeTableViewCell: UITableViewCell {
     /// 来源
     private lazy var sourceLbl = UILabel()
     // 正文
-    private lazy var textLbl: UILabel = {
-        let lbl = UILabel()
+    private lazy var textLbl: KILabel = {
+        let lbl = KILabel()
         lbl.numberOfLines = 0
-        lbl.font = UIFont.systemFontOfSize(16)
+        lbl.font = UIFont.systemFontOfSize(15)
         return lbl
     }()
     /// 转发
     private lazy var retweetedView = UIView()
     /// 转发文字
-    private lazy var retweetedLbl: UILabel = {
-        let lbl = UILabel()
+    private lazy var retweetedLbl: KILabel = {
+        let lbl = KILabel()
         lbl.numberOfLines = 0
-        lbl.font = UIFont.systemFontOfSize(15)
+        lbl.font = UIFont.systemFontOfSize(14)
         lbl.textColor = UIColor.grayColor()
         return lbl
     }()
     //微博图片
     private lazy var picCollectionView: WBPicCollectionView = {
         let collectionView = WBPicCollectionView()
-        collectionView.backgroundColor = UIColor.clearColor()
+        collectionView.backgroundColor = UIColor.whiteColor()
         return collectionView
     }()
     //底部按钮容器

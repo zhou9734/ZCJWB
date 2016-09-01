@@ -19,7 +19,7 @@ let WB_APP_KEY = "1168605738"
 //OAuth授权的app_secret
 let WB_APP_SECRET = "968fb67661aa1e811e171a6937a699c0"
 //重定向url
-let REDIRECT_URL = "http://www.520it.com"
+let REDIRECT_URL = "https://www.baidu.com/"
 //切换RootViewController
 let SwitchRootViewController = "SwitchRootViewController"
 let BrowserPicViewController = "BrowserPicViewController"

@@ -150,6 +150,7 @@ class WBPicCollectionViewCell: UICollectionViewCell {
         contentView.addSubview(gifImageView)
     }
     override func layoutSubviews() {
+        super.layoutSubviews()
         imageView.snp_makeConstraints { (make) -> Void in
             make.edges.equalTo(0)
         }

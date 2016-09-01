@@ -7,4 +7,5 @@ target 'ZCJWB' do
     pod 'SVProgressHUD', '~>2.0.3'
     pod 'SDWebImage', '~>3.8'
     pod 'R.swift', '~>0.13.0'
+    pod 'KILabel', '1.0.1'
 end

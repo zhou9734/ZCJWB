@@ -167,7 +167,7 @@ extension QRCodeViewController: AVCaptureMetadataOutputObjectsDelegate{
         let layer = CAShapeLayer()
         layer.lineWidth = 2
         layer.strokeColor = UIColor.orangeColor().CGColor
-        layer.fillColor = UIColor.clearColor().CGColor
+        layer.fillColor = UIColor(red: 234.0/255.0, green: 234.0/255.0, blue: 241.0/255.0, alpha: 1).CGColor
         //创建UIBeziePath,回执矩形
         let path = UIBezierPath()
         var point = CGPointZero

@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		B9377B9D32EB072723C329EF /* Pods_ZCJWB.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 09C5962C5601D2C67B1B5818 /* Pods_ZCJWB.framework */; };
 		F90BDA751D5ABAE300A3989B /* Pods_ZCJWB.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F90BDA741D5ABAE300A3989B /* Pods_ZCJWB.framework */; };
+		F93E5E311D77B46000F5B144 /* Emoticons.bundle in Resources */ = {isa = PBXBuildFile; fileRef = F93E5E301D77B46000F5B144 /* Emoticons.bundle */; };
 		F95FBD151D57775C00751407 /* Constraint.swift in Sources */ = {isa = PBXBuildFile; fileRef = F95FBD081D57775C00751407 /* Constraint.swift */; };
 		F95FBD161D57775C00751407 /* ConstraintAttributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = F95FBD091D57775C00751407 /* ConstraintAttributes.swift */; };
 		F95FBD171D57775C00751407 /* ConstraintDescription.swift in Sources */ = {isa = PBXBuildFile; fileRef = F95FBD0A1D57775C00751407 /* ConstraintDescription.swift */; };
@@ -57,7 +58,6 @@
 		F974739F1D708F9A00BFE0FF /* UIBarButtonItem+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F97473611D708F9A00BFE0FF /* UIBarButtonItem+Extension.swift */; };
 		F97473A01D708F9A00BFE0FF /* UIButton+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F97473621D708F9A00BFE0FF /* UIButton+Extension.swift */; };
 		F97473A11D708F9A00BFE0FF /* UIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F97473631D708F9A00BFE0FF /* UIImage+Extension.swift */; };
-		F97473AB1D708F9A00BFE0FF /* Emoticons.bundle in Resources */ = {isa = PBXBuildFile; fileRef = F97473711D708F9A00BFE0FF /* Emoticons.bundle */; };
 		F97473AC1D708F9A00BFE0FF /* EmoticonTextAttachment.swift in Sources */ = {isa = PBXBuildFile; fileRef = F97473721D708F9A00BFE0FF /* EmoticonTextAttachment.swift */; };
 		F97473AD1D708F9A00BFE0FF /* KeyboardController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F97473731D708F9A00BFE0FF /* KeyboardController.swift */; };
 		F97473AE1D708F9A00BFE0FF /* KeyboardEmotionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F97473741D708F9A00BFE0FF /* KeyboardEmotionCell.swift */; };
@@ -109,6 +109,7 @@
 		54FA0F80F7822F6226E63412 /* Pods-ZCJWB.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ZCJWB.release.xcconfig"; path = "Pods/Target Support Files/Pods-ZCJWB/Pods-ZCJWB.release.xcconfig"; sourceTree = "<group>"; };
 		E76F3FDA8F122FDE366340BA /* Pods-ZCJWB.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ZCJWB.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ZCJWB/Pods-ZCJWB.debug.xcconfig"; sourceTree = "<group>"; };
 		F90BDA741D5ABAE300A3989B /* Pods_ZCJWB.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Pods_ZCJWB.framework; path = "Pods/../build/Debug-iphoneos/Pods_ZCJWB.framework"; sourceTree = "<group>"; };
+		F93E5E301D77B46000F5B144 /* Emoticons.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Emoticons.bundle; sourceTree = "<group>"; };
 		F95FBD081D57775C00751407 /* Constraint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constraint.swift; sourceTree = "<group>"; };
 		F95FBD091D57775C00751407 /* ConstraintAttributes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConstraintAttributes.swift; sourceTree = "<group>"; };
 		F95FBD0A1D57775C00751407 /* ConstraintDescription.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConstraintDescription.swift; sourceTree = "<group>"; };
@@ -158,7 +159,6 @@
 		F97473611D708F9A00BFE0FF /* UIBarButtonItem+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIBarButtonItem+Extension.swift"; sourceTree = "<group>"; };
 		F97473621D708F9A00BFE0FF /* UIButton+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIButton+Extension.swift"; sourceTree = "<group>"; };
 		F97473631D708F9A00BFE0FF /* UIImage+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+Extension.swift"; sourceTree = "<group>"; };
-		F97473711D708F9A00BFE0FF /* Emoticons.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Emoticons.bundle; sourceTree = "<group>"; };
 		F97473721D708F9A00BFE0FF /* EmoticonTextAttachment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmoticonTextAttachment.swift; sourceTree = "<group>"; };
 		F97473731D708F9A00BFE0FF /* KeyboardController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyboardController.swift; sourceTree = "<group>"; };
 		F97473741D708F9A00BFE0FF /* KeyboardEmotionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyboardEmotionCell.swift; sourceTree = "<group>"; };
@@ -445,7 +445,7 @@
 		F97473701D708F9A00BFE0FF /* KeyboardEmotion */ = {
 			isa = PBXGroup;
 			children = (
-				F97473711D708F9A00BFE0FF /* Emoticons.bundle */,
+				F93E5E301D77B46000F5B144 /* Emoticons.bundle */,
 				F97473721D708F9A00BFE0FF /* EmoticonTextAttachment.swift */,
 				F97473731D708F9A00BFE0FF /* KeyboardController.swift */,
 				F97473741D708F9A00BFE0FF /* KeyboardEmotionCell.swift */,
@@ -662,11 +662,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				F97473891D708F9A00BFE0FF /* QRCode.storyboard in Resources */,
+				F93E5E311D77B46000F5B144 /* Emoticons.bundle in Resources */,
 				F9D8A0A31D6C1BA100A0E943 /* Assets.xcassets in Resources */,
 				F97473921D708F9A00BFE0FF /* MainVCSettings.json in Resources */,
 				F97473951D708F9A00BFE0FF /* VisitorView.xib in Resources */,
 				F97473B11D708F9A00BFE0FF /* ToolView.xib in Resources */,
-				F97473AB1D708F9A00BFE0FF /* Emoticons.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
